@@ -39,7 +39,7 @@ public class Movie implements java.io.Serializable {
 		this.mId = mId;
 	}
 	
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "movie")
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "movie")
 	public Set<MovieLink> getMovieLinks() {
 		return movieLinks;
 	}

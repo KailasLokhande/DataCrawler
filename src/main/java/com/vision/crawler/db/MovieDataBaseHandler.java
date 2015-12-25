@@ -53,44 +53,44 @@ public class MovieDataBaseHandler {
 
 	}
 
-	public long getMovieCount() {
+	public Integer getMovieCount() {
 
 		Session session = HibernateUtil.getSessionFactory().openSession();
 
 		Query query = session.createQuery("select count(*) from Movie");
 		// query.setString("email", "something");
 		// query.setString("password", "password");
-		Long count = (Long) query.uniqueResult();
+		Integer count = (Integer) query.uniqueResult();
 		session.close();
 		return count;
 	}
 
-	public long getMinMovieId() {
+	public Integer getMinMovieId() {
 
 		Session session = HibernateUtil.getSessionFactory().openSession();
 
-		Query query = session.createQuery("select min(mid) from Movie");
+		Query query = session.createQuery("select min(mId) from Movie");
 		// query.setString("email", "something");
 		// query.setString("password", "password");
-		Long count = (Long) query.uniqueResult();
+		Integer count = (Integer) query.uniqueResult();
 		session.close();
 		return count;
 	}
 
-	public long getMaxMovieId() {
+	public Integer getMaxMovieId() {
 
 		Session session = HibernateUtil.getSessionFactory().openSession();
 
-		Query query = session.createQuery("select max(mid) from Movie");
+		Query query = session.createQuery("select max(mId) from Movie");
 		// query.setString("email", "something");
 		// query.setString("password", "password");
-		Long count = (Long) query.uniqueResult();
+		Integer count = (Integer) query.uniqueResult();
 		session.close();
 		return count;
 	}
 
 	public List<Movie> getMoviesById(int startFrom, int count) {
-		String hql = "FROM Movie E WHERE E.mId >= :start AND E.mID < :end";
+		String hql = "FROM Movie E WHERE E.mId >= :start AND E.mId < :end";
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		Query query = session.createQuery(hql);
 		query.setParameter("start", startFrom);

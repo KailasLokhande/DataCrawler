@@ -32,7 +32,7 @@ public class MovieLink {
 		return link;
 	}
 	
-	@ManyToOne(fetch=FetchType.LAZY)
+	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="mId", nullable=false)
 	public Movie getMovie() {
 		return movie;

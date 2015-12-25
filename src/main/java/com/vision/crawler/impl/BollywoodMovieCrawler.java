@@ -155,7 +155,7 @@ public class BollywoodMovieCrawler implements Crawler {
 					Elements videoFrames = videoDoc.select("iframe[src]");
 					for (Element link : videoFrames) {
 						String videoLink = link.attr("src");
-						if (videoLink.contains("embed")) {
+						if (videoLink.contains("embed") && videoLink.contains("openload")) {
 							if (moveDetails.containsKey(movieDetails.getName()
 									.toUpperCase().trim())) {
 								movieDetails = moveDetails.get(movieDetails
@@ -220,8 +220,5 @@ public class BollywoodMovieCrawler implements Crawler {
 
 	}
 
-	private void writeToDB(Map<String, MovieDetails> moveDetails2) {
-		// TODO Auto-generated method stub
-
-	}
+	
 }
