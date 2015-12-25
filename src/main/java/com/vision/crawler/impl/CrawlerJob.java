@@ -18,5 +18,9 @@ public class CrawlerJob implements Job {
 		crawler.processPage("http://hindimovies.bollyv4u.com");
 	}
 	
+	public static void main(String[] args) {
+		Crawler crawler = new BollywoodMovieCrawler();
+		crawler.processPage("http://hindimovies.bollyv4u.com");
+	}
 
 }

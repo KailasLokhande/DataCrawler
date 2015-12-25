@@ -12,7 +12,7 @@ public class JobTrigger {
 
 		public static void main(String[] args) throws Exception {
 			JobDetail job = JobBuilder.newJob(CrawlerJob.class).withIdentity("MovieCrawl", "Crawler").build();
-			Trigger trigger = TriggerBuilder.newTrigger().withIdentity("MovieCrawl", "Crawler").withSchedule(CronScheduleBuilder.cronSchedule("5 1 * * Sat ?")).build();
+			Trigger trigger = TriggerBuilder.newTrigger().withIdentity("MovieCrawl", "Crawler").withSchedule(CronScheduleBuilder.cronSchedule("* * 1 * * ?")).build();
 			Scheduler scheduler = new StdSchedulerFactory().getScheduler();
 			scheduler.start();
 			scheduler.scheduleJob(job, trigger);

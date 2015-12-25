@@ -30,7 +30,7 @@ public class Movie implements java.io.Serializable {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY )
-	@Column(name = "mid", unique=true, nullable=false)
+	@Column(name = "mId", unique=true, nullable=false)
 	public Integer getmId() {
 		return mId;
 	}
